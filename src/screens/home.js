@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Text, View, Button, Image, StyleSheet, ScrollView } from 'react-native'
+import { Text, View, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
 import { MagnifyingGlassIcon } from 'react-native-heroicons/outline'
@@ -47,7 +47,7 @@ const Home = ({ navigation }) => {
       <SafeAreaView>
         <StatusBar style='light' />
         <View className="flex-row justify-between items-center mx-6 mb-5">
-          <Text className="text-white text-2xl my-2">Shokh Cinema</Text>
+          <Text className="text-white text-2xl my-2">Nav Cinema</Text>
           <MagnifyingGlassIcon size={30} strokeWidth={2} color={'white'} />
         </View>
       </SafeAreaView>

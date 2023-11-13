@@ -1,9 +1,9 @@
 import React from 'react'
-import { Dimensions, Text, View } from 'react-native'
+import { Dimensions, View } from 'react-native'
 import Carousel from 'react-native-snap-carousel'
 import MovieCard from './movie-card'
 
-const {width, height} = Dimensions.get('window')
+const {width} = Dimensions.get('window')
 
 export default function TrendingMovie({trending}) {
   return (
