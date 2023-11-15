@@ -5,6 +5,8 @@ import { ChevronLeftIcon } from 'react-native-heroicons/outline'
 import { HeartIcon } from 'react-native-heroicons/solid'
 import { fetchCreditsMovie, fetchMovieDetail, fetchSimilarMovies, image342, image500 } from '../api'
 import PorgressLoader from '../components/progress-loader'
+import Cast from '../components/cast'
+import UpcomingMovie from '../components/upcoming-movie'
 
 const { width, height } = Dimensions.get('window')
 
@@ -55,16 +57,18 @@ export default function Movie() {
                 {loading ? <PorgressLoader /> :
                     <View>
                         <Image source={{ uri: image500(movie.poster_path) }} style={{ width, height: height * 0.5 }} />
-                        <Text className={'text-white text-center text-3xl -mt-9 tracking-wider font-bold'}>{movie.title}</Text>
+                        <Text className={'text-white text-center text-3xl mt-3 tracking-wider font-bold'}>{movie.title}</Text>
                         <Text className={'text-white text-center text-xl mt-4 font-bold'}>{movie?.status} • {movie?.release_date?.split('-')[0]} • {movie.runtime} min</Text>
                         <View className={'flex-row items-center justify-center mt-4'}>
                             {movie.genres.map((item, idx) => (
                                <Text className={'text-white ml-1 text-bold text-xl italic'} key={idx}>{item.name} {idx + 1 !== movie.genres.length ? '•' : null}</Text>
                             ))}
                         </View>
-                        <Text className={'text-white text-center mx-7 mt-10'}>{movie.overview}</Text>
+                        <Text className={'text-white text-center mx-5 mt-10'}>{movie.overview}</Text>
                     </View>}
             </View>
+            {movie?.id && cast.length > 0 && <Cast cast={cast}/>}
+            {movie?.id && similarMovie.length > 0 && <UpcomingMovie upcoming={similarMovie} title={'Similar Movies:'}/>}
         </ScrollView>
     )
 }

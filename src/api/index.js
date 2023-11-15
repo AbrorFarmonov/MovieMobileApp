@@ -27,6 +27,9 @@ export const fetchSimilarMovies = (id) => {
     return apiRequest(similarMovie(id))
 }
 
+const AuthorDetail = id => `${baseUrl}/person/${id}?api_key=${api_key}`
+const AuthorMovie = id => `${baseUrl}/person/${id}/movie_credits?api_key=${api_key}`
+
 export const fetchUpcomingMovie = () => {
     return apiRequest(upComingMovie)
 }
@@ -49,4 +52,12 @@ export const image342 = poster_path => {
 
 export const image185 = poster_path => {
     return poster_path ? "https://image.tmdb.org/t/p/w185" + poster_path : null
+}
+
+export const fetchAuthorDetailed = id => {
+    return apiRequest(AuthorDetail(id))
+}
+
+export const fetchAuthorMovie = id => {
+    return apiRequest(AuthorMovie(id))
 }
